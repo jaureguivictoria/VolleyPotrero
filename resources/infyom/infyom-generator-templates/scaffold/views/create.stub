@@ -1,0 +1,29 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row form-group">
+            <div class="col-sm-12">
+                <h1>
+                    $MODEL_NAME_HUMAN$
+                </h1>
+            </div>
+        </div>
+    
+        <div class="row form-group">
+            <div class="col-sm-12">
+                @include('adminlte-templates::common.errors')
+            </div>
+        </div>
+        
+        <div class="row form-group">
+            <div class="col-sm-12">
+                {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store']) !!}
+
+                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@endsection
