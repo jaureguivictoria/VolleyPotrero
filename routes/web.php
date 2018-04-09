@@ -18,7 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/.well-known/acme-challenge/WNHqf59gXtp-g-rH9jcyCMtAGJj0_4Av9ImF6ARzKJs', function () {
-    return "WNHqf59gXtp-g-rH9jcyCMtAGJj0_4Av9ImF6ARzKJs.TxMbECe7MgmMiGuGjvSjGYq5uGOIXstLYv15qFQKynw";
-});

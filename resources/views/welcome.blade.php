@@ -67,7 +67,7 @@
                         <span><i class="far fa-clock" style="font-size:70px;"></i></span><br><br>
                         Encontranos en el Polideportivo de Potrero de Garay</h3>
                     <h5 class="mb-4">Horarios: Martes y Viernes a las 20hs</h5>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1695.9338192064693!2d-64.54241059431953!3d-31.774095842505236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d4d90feb0df2d%3A0x48dd7731a7bf0d24!2sCalle+15%2C+La+Estancia%2C+C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1523233875054" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1695.9338192064693!2d-64.54241059431953!3d-31.774095842505236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d4d90feb0df2d%3A0x48dd7731a7bf0d24!2sCalle+15%2C+La+Estancia%2C+C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1523233875054" height="450" frameborder="0" style="border:0;width:100%;" allowfullscreen></iframe>
                 </div>
             </div>
             
