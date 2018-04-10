@@ -71,12 +71,4 @@ class Payment extends Model
             return "<h4><span class='badge badge-danger'>Impago</span></h4>";
         }
     }
-    
-    public function getCreatedAtAttribute($value)
-    {
-        Carbon::setLocale('es');
-        
-        return $value ? Carbon::parse($value)->formatLocalized('%B %Y') : '';
-    }
-    
 }

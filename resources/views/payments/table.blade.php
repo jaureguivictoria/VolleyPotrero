@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Miembro</th>
-            <th>Fecha</th>
+            <th>Fecha de pago</th>
             <th>Monto</th>
             <th colspan="3">Acciones</th>
         </tr>
@@ -11,7 +11,7 @@
     @foreach($payments as $payment)
         <tr>
             <td><a href="{{route('members.show',$payment->member_id)}}">{!! $payment->member->getFullName() !!}</a></td>
-            <td>{!! $payment->created_at->format('d/m/Y H:i') !!}</td>
+            <td>{!! $payment->payed_at->format('d/m/Y H:i') !!}</td>
             <td>$ {!! $payment->amount !!}</td>
             <td>
                 {!! Form::open(['route' => ['payments.destroy', $payment->id], 'method' => 'delete']) !!}

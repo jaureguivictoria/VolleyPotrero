@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-sm-6">
                             {!! Form::label('created_at', 'Periodo:') !!}
-                            <p>{!! $payment->created_at !!}</p>
+                            <p>{!! $payment->created_at->format('m/Y') !!}</p>
                         </div>
                     </div>
                     @include('payments.fields')
