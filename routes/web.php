@@ -28,4 +28,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('payments.pay/{id}', 'PaymentController@pay')->name('payments.pay');
     
     Route::patch('members.restore/{id}', 'MemberController@restore')->name('members.restore');
+    Route::post('members/search', 'MemberController@index')->name('members.search');
 });

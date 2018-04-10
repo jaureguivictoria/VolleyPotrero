@@ -31,14 +31,11 @@ class MemberController extends AppBaseController
     public function index(Request $request)
     {
         $this->memberRepository->pushCriteria(new RequestCriteria($request));
-        if($request->get('withTrashed')){
-            $members = Member::onlyTrashed()->paginate(10);
-        } else {
-            $members = $this->memberRepository->paginate(10);
-        }
+        $members = $this->memberRepository->getMembers($request);
 
         return view('members.index')
-            ->with('members', $members);
+            ->with('members', $members)
+            ->with('search', $request->get('search',''));
     }
 
     /**
