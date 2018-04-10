@@ -17,9 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('members', 'MemberController');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    Route::resource('members', 'MemberController');
 
-Route::resource('payments', 'PaymentController');
-Route::patch('payments.pay/{id}', 'PaymentController@pay')->name('payments.pay');
+    Route::resource('payments', 'PaymentController');
+
+    Route::patch('payments.pay/{id}', 'PaymentController@pay')->name('payments.pay');
+});

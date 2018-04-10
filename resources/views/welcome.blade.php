@@ -1,4 +1,4 @@
-@extends('layout.base')
+@extends('layout.lp-base')
 
 @section('content')    
     <main role="main" class="container" id="app">

@@ -35,12 +35,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('members.index')}}">Miembros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('payments.index')}}">Pagos</a>
-                        </li>
+                        @if (Auth::check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('members.index')}}">Miembros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('payments.index')}}">Pagos</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

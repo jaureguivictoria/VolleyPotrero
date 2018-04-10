@@ -9,15 +9,17 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}">{{trans('messages.home')}} <span class="sr-only">({{trans('messages.current')}})</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('members.index')}}">Miembros</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('payments.index')}}">Pagos</a>
-            </li>
+            @if (Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('home')}}">{{trans('messages.home')}} <span class="sr-only">({{trans('messages.current')}})</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('members.index')}}">Miembros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('payments.index')}}">Pagos</a>
+                </li>
+            @endif
             {{--<li class="nav-item">
                 <a class="nav-link disabled" href="#">{{trans('messages.disabled')}}</a>
             </li>
