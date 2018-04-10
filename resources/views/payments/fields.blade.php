@@ -16,7 +16,7 @@
     @if (!empty($payment))
         <div class="col-sm-6">
             {!! Form::label('status', 'Estado:') !!}
-            <p>{{$payment->status}}</p>
+            <p>{!!$payment->getStatusLabel()!!}</p>
         </div>
     @else
         {{ Form::hidden('status','PAYED')}}
@@ -27,9 +27,18 @@
     </div>
 </div>
 
+@if (!empty($payment->payed_at))
+<div class="form-group row">
+    <div class="col-sm-6">
+        {!! Form::label('created_at', 'Fecha de pago:') !!}
+        <p>{!! $payment->payed_at->format('d/m/Y H:i') !!}</p>
+    </div>
+</div>
+@endif
+
 <!-- Submit Field -->
 <div class="form-group row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 text-right">
         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
         <a href="{!! route('payments.index') !!}" class="btn btn-default">Cancelar</a>
     </div>

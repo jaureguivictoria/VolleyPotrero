@@ -22,8 +22,8 @@
     
     <!-- Created At Field -->
     <div class="col-sm-6">
-        {!! Form::label('created_at', 'Fecha de creación:') !!}
-        <p>{!! $payment->created_at->format('d/m/Y') !!}</p>
+        {!! Form::label('created_at', 'Periodo:') !!}
+        <p>{!! $payment->created_at !!}</p>
     </div>
 </div>
 
@@ -34,18 +34,24 @@
     </div>
     <div class="col-sm-6">
         {!! Form::label('status', 'Estado:') !!}
-        <p>{!! $payment->status !!}</p>
+        <p>{!! $payment->getStatusLabel() !!}</p>
     </div>
+</div>
 
 <div class="form-group row">
     <!-- Updated At Field -->
     <div class="col-sm-6">
         {!! Form::label('updated_at', 'Última actualización:') !!}
-        <p>{!! $payment->updated_at->format('d/m/Y') !!}</p>
+        <p>{!! empty($payment->updated_at) ? null : $payment->updated_at->format('d/m/Y H:i') !!}</p>
     </div>
     <div class="col-sm-6">
-        <div class="col-sm-6">
-            <a href="{!! route('payments.index') !!}" class="btn btn-primary">Atrás</a>
-        </div>
+        {!! Form::label('created_at', 'Fecha de pago:') !!}
+        <p>{!! empty($payment->payed_at) ? null : $payment->payed_at->format('d/m/Y H:i') !!}</p>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-sm-12 ">
+        <a href="{!! route('payments.index') !!}" class="btn btn-primary">Atrás</a>
     </div>
 </div>

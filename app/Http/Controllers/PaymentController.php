@@ -161,6 +161,7 @@ class PaymentController extends AppBaseController
         }
 
         $payment->status = Payment::STATUS_UNPAYED;
+        $payment->payed_at = null;
         $payment->save();
 
         Flash::success('Pago eliminado con éxito.');
@@ -187,6 +188,7 @@ class PaymentController extends AppBaseController
         }
 
         $payment->status = Payment::STATUS_PAYED;
+        $payment->payed_at = Carbon::now();
         $payment->save();
 
         Flash::success('Pago registrado con éxito.');

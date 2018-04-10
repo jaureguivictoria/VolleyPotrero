@@ -50,7 +50,7 @@
     <!-- Created At Field -->
     <div class="col-sm-6">
         {!! Form::label('created_at', 'Fecha de creación:') !!}
-        <p>{!! $member->created_at->format('d/m/Y') !!}</p>
+        <p>{!! $member->created_at->format('d/m/Y H:i') !!}</p>
     </div>
 </div>
 
@@ -58,9 +58,6 @@
     <!-- Updated At Field -->
     <div class="col-sm-6">
         {!! Form::label('updated_at', 'Última actualización:') !!}
-        <p>{!! $member->updated_at->format('d/m/Y') !!}</p>
-    </div>
-    <div class="col-sm-6">
-        <a href="{!! route('members.index') !!}" class="btn btn-primary">Atrás</a>
+        <p>{!! empty($member->updated_at) ? null : $member->updated_at->format('d/m/Y H:i') !!}</p>
     </div>
 </div>

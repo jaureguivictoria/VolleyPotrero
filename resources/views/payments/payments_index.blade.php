@@ -1,6 +1,9 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="pull-left">Pagos</h3>
+        <div class="row">
+            <h3 class="col-sm-8">Pagos</h3>
+            <h5 class="col-sm-4">Periodo: <strong>{{$from}}</strong> al <strong>{{$to}}</strong></h5>
+        </div>
     </div>
     <div class="card-body">
         <div class="row form-group">

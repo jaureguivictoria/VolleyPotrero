@@ -4,6 +4,7 @@ namespace VolleyPotrero\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 /**
  * Class Payment
@@ -29,7 +30,8 @@ class Payment extends Model
         'member_id',
         'amount',
         'notes',
-        'status'
+        'status',
+        'payed_at'
     ];
 
     /**
@@ -39,7 +41,8 @@ class Payment extends Model
      */
     protected $casts = [
         'member_id' => 'integer',
-        'amount' => 'double'
+        'amount' => 'double',
+        'payed_at' => 'datetime'
     ];
 
     /**
@@ -58,6 +61,22 @@ class Payment extends Model
     public function member()
     {
         return $this->belongsTo(\VolleyPotrero\Models\Member::class,'member_id','id')->withTrashed();
+    }
+    
+    public function getStatusLabel()
+    {
+        if($this->status == self::STATUS_PAYED){
+            return "<h4><span class='badge badge-success'>Pagado</span></h4>";
+        } elseif($this->status == self::STATUS_UNPAYED){
+            return "<h4><span class='badge badge-danger'>Impago</span></h4>";
+        }
+    }
+    
+    public function getCreatedAtAttribute($value)
+    {
+        Carbon::setLocale('es');
+        
+        return $value ? Carbon::parse($value)->formatLocalized('%B %Y') : '';
     }
     
 }

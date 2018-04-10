@@ -41,7 +41,8 @@
 </div>
 <div class="form-group row">
 <!-- Submit Field -->
-<div class="col-sm-12">
+<div class="col-sm-9"></div>
+<div class="col-sm-3 text-right">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('members.index') !!}" class="btn btn-default">Cancelar</a>
 </div>
