@@ -1,28 +1,26 @@
 <div class="form-group row">
-    <!-- Id Field -->
-    <div class="col-sm-6">
-        {!! Form::label('id', 'ID:') !!}
-        <p>{!! $member->id !!}</p>
-    </div>
-
     <!-- Name Field -->
     <div class="col-sm-6">
         {!! Form::label('name', 'Nombre:') !!}
         <p>{!! $member->name !!}</p>
     </div>
-</div>
-
-<div class="form-group row">
     <!-- Surname Field -->
     <div class="col-sm-6">
         {!! Form::label('surname', 'Apellido:') !!}
         <p>{!! $member->surname !!}</p>
     </div>
+</div>
 
+<div class="form-group row">
     <!-- Birthday Field -->
     <div class="col-sm-6">
         {!! Form::label('birthday', 'Fecha de nacimiento:') !!}
         <p>{!! empty($member->birthday) ? null : $member->birthday->format('d/m/Y') !!}</p>
+    </div>
+    <!-- Id Field -->
+    <div class="col-sm-6">
+        {!! Form::label('id', 'Edad:') !!}
+        <p>{!! $member->getAge() !!}</p>
     </div>
 </div>
 

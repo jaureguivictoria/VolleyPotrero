@@ -4,6 +4,7 @@ namespace VolleyPotrero\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 /**
  * Class Member
@@ -86,5 +87,10 @@ class Member extends Model
         return $members->mapWithKeys(function ($item) {
                 return [$item->id => $item->name];
             });
+    }
+    
+    public function getAge()
+    {
+        return Carbon::parse($this->birthday)->age;
     }
 }

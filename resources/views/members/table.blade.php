@@ -3,7 +3,7 @@
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Fecha de nacimiento</th>
+            <th>Edad</th>
             <th>DNI</th>
             <th>Teléfono</th>
             <th>Email</th>
@@ -15,7 +15,7 @@
         <tr>
             <td>{!! $member->name !!}</td>
             <td>{!! $member->surname !!}</td>
-            <td>{!! empty($member->birthday) ? null : $member->birthday->format("d/m/Y") !!}</td>
+            <td>{!! empty($member->birthday) ? '' : $member->getAge() !!}</td>
             <td>{!! $member->dni !!}</td>
             <td>{!! $member->phone !!}</td>
             <td>{!! $member->email !!}</td>
