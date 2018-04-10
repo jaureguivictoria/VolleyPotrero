@@ -20,13 +20,20 @@
             <td>{!! $member->phone !!}</td>
             <td>{!! $member->email !!}</td>
             <td>
-                {!! Form::open(['route' => ['members.destroy', $member->id], 'method' => 'delete']) !!}
+                
                 <div class='btn-group'>
                     <a href="{!! route('members.show', [$member->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-eye"></i></a>
-                    <a href="{!! route('members.edit', [$member->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>
-                    {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('¿Está seguro?')"]) !!}
+                    @if (!$member->trashed())
+                        <a href="{!! route('members.edit', [$member->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>
+                        {!! Form::open(['route' => ['members.destroy', $member->id], 'method' => 'delete']) !!}
+                            {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Va a eliminar a este miembro. ¿Está seguro?')"]) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route' => ['members.restore', $member->id], 'method' => 'patch']) !!}
+                            {!! Form::button('<i class="fa fa-undo"></i>', ['type' => 'submit', 'class' => 'btn btn-success btn-xs', 'onclick' => "return confirm('Va a restaurar a este miembro. ¿Está seguro?')"]) !!}
+                        {!! Form::close() !!}
+                    @endif
                 </div>
-                {!! Form::close() !!}
             </td>
         </tr>
     @endforeach

@@ -31,7 +31,9 @@
             </li> --}}
         </ul>
         <div class="my-2 my-lg-0">
+            @if (!Auth::check())
             <a class="btn btn-outline-success my-2 my-sm-0" href="{{route('login')}}">Login</a>
+            @endif
         </div>
         {{-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="{{trans('messages.search')}}" aria-label="{{trans('messages.search')}}">

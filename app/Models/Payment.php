@@ -57,7 +57,7 @@ class Payment extends Model
      **/
     public function member()
     {
-        return $this->belongsTo(\VolleyPotrero\Models\Member::class,'member_id','id');
+        return $this->belongsTo(\VolleyPotrero\Models\Member::class,'member_id','id')->withTrashed();
     }
     
 }

@@ -26,4 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('payments', 'PaymentController');
 
     Route::patch('payments.pay/{id}', 'PaymentController@pay')->name('payments.pay');
+    
+    Route::patch('members.restore/{id}', 'MemberController@restore')->name('members.restore');
 });
