@@ -53,22 +53,30 @@ class GeneratePayments extends Command
         if(count($newPayments) == 0){
             $this->info('No new payments needed for current month');
         } else {
-            if ($this->confirm('You are about to create '.count($newPayments).' new payments. Do you wish to continue?')) {
-                
-                $bar = $this->output->createProgressBar(count($newPayments));
-                
-                foreach ($newPayments as $newPaymentMember) {
-                    Payment::create([
-                        'member_id' => $newPaymentMember->id,
-                        'amount' => config('volley_settings.membership'),
-                        'status' => Payment::STATUS_UNPAYED
-                    ]);
-                    $bar->advance();
+            if(\App::environment('local')){
+                if ($this->confirm('You are about to create '.count($newPayments).' new payments. Do you wish to continue?')) {
+                    $this->generatePayments($newPayments);
                 }
-                $bar->finish();
-                
-                $this->line('Payments created successfully');
+            } else {
+                $this->generatePayments($newPayments);
             }
         }
+    }
+    
+    public function generatePayments($newPayments)
+    {
+        $bar = $this->output->createProgressBar(count($newPayments));
+        
+        foreach ($newPayments as $newPaymentMember) {
+            Payment::create([
+                'member_id' => $newPaymentMember->id,
+                'amount' => config('volley_settings.membership'),
+                'status' => Payment::STATUS_UNPAYED
+            ]);
+            $bar->advance();
+        }
+        $bar->finish();
+        
+        $this->line("\nPayments created successfully");
     }
 }

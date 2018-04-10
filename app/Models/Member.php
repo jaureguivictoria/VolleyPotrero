@@ -59,9 +59,9 @@ class Member extends Model
         'name' => 'required',
         'surname' => 'required',
         'birthday' => 'required|date',
-        'dni' => 'numeric',
-        'phone' => 'numeric',
-        'email' => 'email'
+        'dni' => 'nullable|numeric',
+        'phone' => 'nullable|numeric',
+        'email' => 'nullable|email'
     ];
     
     /**
