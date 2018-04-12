@@ -71,8 +71,6 @@
                 </div>
             </div>
             
-            @include('payments.debtors')
-            
         </div>
     </main>
 @endsection

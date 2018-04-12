@@ -2,6 +2,7 @@
 
 namespace VolleyPotrero\Models;
 
+use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
@@ -17,7 +18,7 @@ use Carbon\Carbon;
  * @property integer phone
  * @property string email
  */
-class Member extends BaseModel
+class Member extends Model
 {
     use SoftDeletes;
 
@@ -91,12 +92,5 @@ class Member extends BaseModel
     public function getAge()
     {
         return Carbon::parse($this->birthday)->age;
-    }
-    
-    public function getCreatedAtAttribute($value)
-    {
-        return $value ? Carbon::parse($value)
-            ->setTimezone('America/Argentina/Cordoba')
-            ->format('d/m/Y H:i') : '';
     }
 }

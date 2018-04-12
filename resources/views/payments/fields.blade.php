@@ -31,7 +31,7 @@
 <div class="form-group row">
     <div class="col-sm-6">
         {!! Form::label('created_at', 'Fecha de pago:') !!}
-        <p>{!! $payment->payed_at !!}</p>
+        <p>{!! $payment->payed_at->format('d/m/Y H:i') !!}</p>
     </div>
 </div>
 @endif

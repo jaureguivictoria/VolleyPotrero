@@ -42,11 +42,11 @@
     <!-- Updated At Field -->
     <div class="col-sm-6">
         {!! Form::label('updated_at', 'Última actualización:') !!}
-        <p>{!! $payment->updated_at !!}</p>
+        <p>{!! empty($payment->updated_at) ? null : $payment->updated_at->format('d/m/Y H:i') !!}</p>
     </div>
     <div class="col-sm-6">
         {!! Form::label('created_at', 'Fecha de pago:') !!}
-        <p>{!! empty($payment->payed_at) ? null : $payment->payed_at !!}</p>
+        <p>{!! empty($payment->payed_at) ? null : $payment->payed_at->format('d/m/Y H:i') !!}</p>
     </div>
 </div>
 

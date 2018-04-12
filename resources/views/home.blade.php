@@ -10,7 +10,7 @@
                     <h3 class="mb-0">
                         <a class="text-dark" href="{{route('payments.index')}}">Administrar pagos</a>
                     </h3>
-                    <p class="card-text mb-auto">Ver deudores, agregar nuevos pagos.</p>
+                    <p class="card-text mb-auto">Ver deudores, agregar nuevos pagos, administrar valor cuota.</p>
                     <a href="{{route('payments.index')}}">Ir a pagos</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" src="{{asset('/img/payments.jpeg')}}" alt="Pagos">
@@ -31,9 +31,6 @@
             </div>
         </div>
     </div>
-    
-    @include('payments.debtors',['showTotal' => true])
-    
 </div>
 
 @endsection

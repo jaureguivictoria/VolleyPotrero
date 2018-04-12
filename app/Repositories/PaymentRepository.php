@@ -34,24 +34,15 @@ class PaymentRepository extends BaseRepository
     
     public function getDebtors($from, $to)
     {
-        return Payment::whereNull('payed_at')
+        return Payment::where('status',Payment::STATUS_UNPAYED)
             ->whereBetween('created_at', [$from,$to])
             ->get();
     }
     
     public function getPayments($from, $to)
     {
-        return Payment::whereNotNull('payed_at')
+        return Payment::where('status',Payment::STATUS_PAYED)
             ->whereBetween('created_at', [$from,$to])
             ->paginate(10);
-    }
-    
-    public function getDebtorsInTotal()
-    {
-        return Payment::select(\DB::raw('sum(payments.amount) as total, count(payments.id) as quotas,  members.name as name, SUBSTR(members.surname,1,1) as surname, members.id as id'))
-                ->whereNull('payed_at')
-                ->join('members','members.id','=','payments.member_id')
-                ->groupBy('payments.member_id')
-                ->get();
     }
 }
