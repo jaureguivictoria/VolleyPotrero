@@ -14,7 +14,7 @@
         <tr>
             <td>{!! $payment->id !!}</td>
             <td>{!! $payment->created_at->format('m/Y') !!}</td>
-            <td>{!! empty($payment->payed_at) ? null : $payment->payed_at->format('d/m/Y H:i') !!}</td>
+            <td>{!! empty($payment->payed_at) ? null : $payment->payed_at !!}</td>
             <td>$ {!! $payment->amount !!}</td>
             <td>{!! $payment->getStatusLabel()!!}</td>
             <td>

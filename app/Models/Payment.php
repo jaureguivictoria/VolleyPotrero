@@ -2,7 +2,6 @@
 
 namespace VolleyPotrero\Models;
 
-use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
@@ -14,7 +13,7 @@ use Carbon\Carbon;
  * @property integer member_id
  * @property double amount
  */
-class Payment extends Model
+class Payment extends BaseModel
 {
     use SoftDeletes;
 
@@ -70,5 +69,12 @@ class Payment extends Model
         } elseif($this->status == self::STATUS_UNPAYED){
             return "<h4><span class='badge badge-danger'>Impago</span></h4>";
         }
+    }
+    
+    public function getPayedAtAttribute($value)
+    {
+        return $value ? Carbon::parse($value)
+            ->setTimezone('America/Argentina/Cordoba')
+            ->format('d/m/Y H:i') : '';
     }
 }
