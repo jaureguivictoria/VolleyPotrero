@@ -22,9 +22,9 @@
                     <tr>
                         <td>
                             @if (!empty($showTotal))
-                                <a href="{{route('members.show',$debtor->id)}}">{{$debtor->gname}} {{$debtor->surname}}</a>
+                                <a href="{{route('members.show',$debtor->id)}}">{{$debtor->name}} {{$debtor->surname}}</a>
                             @else
-                                {{$debtor->gname}} {{$debtor->surname}}
+                                {{$debtor->name}} {{$debtor->surname}}
                             @endif
                         </td>
                         @if (!empty($showTotal))

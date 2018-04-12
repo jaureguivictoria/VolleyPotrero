@@ -48,7 +48,7 @@ class PaymentRepository extends BaseRepository
     
     public function getDebtorsInTotal()
     {
-        return Payment::select(\DB::raw('sum(payments.amount) as total, count(payments.id) as quotas,  members.name as gname, SUBSTR(members.surname,1,1) as surname, members.id as id'))
+        return Payment::select(\DB::raw('sum(payments.amount) as total, count(payments.id) as quotas,  members.name as name, SUBSTR(members.surname,1,1) as surname, members.id as id'))
                 ->whereNull('payed_at')
                 ->join('members','members.id','=','payments.member_id')
                 ->groupBy('payments.member_id')
