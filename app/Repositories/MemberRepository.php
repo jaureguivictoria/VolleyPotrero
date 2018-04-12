@@ -65,7 +65,7 @@ class MemberRepository extends BaseRepository
                         });
         }
         
-        return $members->paginate(10);
+        return $members->get();
 
     }
 }

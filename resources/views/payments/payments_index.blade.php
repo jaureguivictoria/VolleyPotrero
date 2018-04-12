@@ -27,10 +27,5 @@
                 @include('payments.table')
             </div>
         </div>
-        <div class="row form-group">
-            <div class="col-sm-12 text-center">
-                {{ $payments->links() }}
-            </div>
-        </div>
     </div>
 </div>

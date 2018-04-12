@@ -44,12 +44,7 @@
         </div>
         <div class="row form-group">
             <div class="col-sm-12 ">
-                {{ $members->links() }}
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-sm-12 ">
-                <span>Total: {{ $members->total()}}</span>
+                <span>Total: {{ $members->count()}}</span>
             </div>
         </div>
     </div>
