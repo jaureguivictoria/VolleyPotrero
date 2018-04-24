@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use VolleyPotrero\Models\Member;
+use VolleyPotrero\Models\Payment;
 
 class MemberController extends AppBaseController
 {
@@ -60,6 +61,12 @@ class MemberController extends AppBaseController
         $input = $request->all();
 
         $member = $this->memberRepository->create($input);
+
+        Payment::create([
+            'member_id' => $member->id,
+            'amount' => config('volley_settings.membership'),
+            'status' => Payment::STATUS_UNPAYED
+        ]);
 
         Flash::success('Miembro guardado con éxito.');
 
