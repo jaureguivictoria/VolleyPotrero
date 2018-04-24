@@ -62,7 +62,8 @@ class MemberRepository extends BaseRepository
                                 $query->where('name','like', "%$search%")
                                     ->orWhere('surname','like', "%$search%");
                             }
-                        });
+                        })
+                        ->orderBy('name');
         }
         
         return $members->get();

@@ -42,7 +42,9 @@ class PaymentRepository extends BaseRepository
     public function getPayments($from, $to)
     {
         return Payment::whereNotNull('payed_at')
-            ->whereBetween('created_at', [$from,$to])->get();
+            ->whereBetween('created_at', [$from,$to])
+            ->orderBy('payed_at','desc')
+            ->get();
             
     }
     
