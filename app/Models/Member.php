@@ -99,4 +99,19 @@ class Member extends BaseModel
             ->setTimezone('America/Argentina/Cordoba')
             ->format('d/m/Y H:i') : '';
     }
+
+    public function getEmailAttribute($value)
+    {
+        return empty($value) ? '' : $value;
+    }
+
+    public function getDniAttribute($value)
+    {
+        return empty($value) ? '' : $value;
+    }
+
+    public function getPhoneAttribute($value)
+    {
+        return empty($value) ? '' : $value;
+    }
 }

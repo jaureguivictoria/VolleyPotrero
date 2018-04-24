@@ -38,13 +38,13 @@
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-sm-12">
-                @include('members.table')   
+            <div class="col-sm-12 ">
+                <span class="font-weight-bold">Total: {{ $members->count()}}</span>
             </div>
         </div>
         <div class="row form-group">
-            <div class="col-sm-12 ">
-                <span>Total: {{ $members->count()}}</span>
+            <div class="col-sm-12">
+                @include('members.table')
             </div>
         </div>
     </div>

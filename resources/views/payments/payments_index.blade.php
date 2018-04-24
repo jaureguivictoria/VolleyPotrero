@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <div class="row">
-            <h3 class="col-sm-8">Pagos</h3>
+            <h3 class="col-sm-8">{{count($payments)}} Pagos</h3>
             <h5 class="col-sm-4">Periodo: <strong>{{$from}}</strong> al <strong>{{$to}}</strong></h5>
         </div>
     </div>
